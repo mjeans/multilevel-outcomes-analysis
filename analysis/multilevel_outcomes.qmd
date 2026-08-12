@@ -1,0 +1,55 @@
+---
+title: "Multilevel outcomes analysis"
+subtitle: "Three-level longitudinal modeling with synthetic data"
+author: "Matthew Jeans"
+format:
+  html:
+    toc: true
+    code-fold: true
+execute:
+  echo: true
+  warning: false
+---
+
+## Purpose
+
+This report demonstrates a three-level outcome analysis in which repeated measurements are nested within people and people are nested within organizations.
+
+## Reproduce the workflow
+
+~~~{r}
+#| label: run-analysis
+source("../R/01_generate_nested_data.R")
+source("../R/02_fit_multilevel_models.R")
+source("../R/03_model_diagnostics.R")
+~~~
+
+## Variance decomposition
+
+~~~{r}
+#| label: variance-components
+variance <- readr::read_csv(
+  "../outputs/variance_components.csv",
+  show_col_types = FALSE
+)
+knitr::kable(variance, digits = 3)
+~~~
+
+The unconditional model separates organization, person, and observation-level variance. This establishes whether clustering is practically important before the conditional model is interpreted.
+
+## Fixed effects
+
+~~~{r}
+#| label: fixed-effects
+fixed <- readr::read_csv(
+  "../outputs/fixed_effects.csv",
+  show_col_types = FALSE
+)
+knitr::kable(fixed, digits = 3)
+~~~
+
+The time-by-program coefficient represents the additional average change per wave in program organizations relative to comparison organizations, conditional on the model covariates and random-effects structure.
+
+## Diagnostic checks
+
+Residual patterns, fitted trajectories, convergence warnings, and the distribution of organization effects are reviewed together. A production analysis would add influence diagnostics, alternative covariance structures, missing-wave analysis, and small-cluster corrections when warranted.
