@@ -19,6 +19,7 @@ encode person_id, gen(person_n)
 
 isid organization_n person_n time
 assert inrange(time, 0, 2)
+xtset person_n time
 xtdescribe
 
 quietly summarize baseline_score
