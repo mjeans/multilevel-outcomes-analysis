@@ -4,6 +4,8 @@ A longitudinal, three-level analysis of synthetic outcome data: repeated observa
 
 The dataset is entirely synthetic and does not describe a real school, learner, client, or intervention.
 
+![Three-level longitudinal outcomes model](assets/multilevel-model.svg)
+
 ## Analytic question
 
 Do outcomes change differently over time in program organizations than in comparison organizations after accounting for baseline outcome level and individual characteristics?
