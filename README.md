@@ -46,13 +46,10 @@ data/
 
 ## Run the analysis
 
-With R 4.4 or later:
+With R 4.6.x (reference: 4.6.1):
 
 ~~~r
-install.packages(c(
-  "broom.mixed", "dplyr", "ggplot2",
-  "lme4", "purrr", "readr", "tibble", "tidyr"
-))
+source("scripts/restore_environment.R")
 
 source("R/01_generate_nested_data.R")
 source("R/02_fit_multilevel_models.R")
@@ -62,6 +59,11 @@ source("R/03_model_diagnostics.R")
 A companion Stata do-file fits the equivalent mixed-effects specification and produces marginal predictions. GitHub Actions validates the R implementation because Stata requires a commercial license.
 
 ## Outputs
+
+Read the [executed multilevel report](outputs/report.md) for adjusted trajectories, fixed effects, variance decomposition, and diagnostics.
+
+![Model-adjusted trajectories and mixed-model 95% intervals](assets/adjusted-trajectories.svg)
+
 
 - `outputs/fixed_effects.csv`
 - `outputs/variance_components.csv`
@@ -81,3 +83,7 @@ Longitudinal analysis · hierarchical linear modeling · mixed-effects models ·
 ## License
 
 MIT
+
+## Reproducible environment
+
+Restore dependencies with `Rscript scripts/restore_environment.R` before running the analysis from the repository root. See [environment notes](docs/environment.md) and the committed `renv.lock`.
