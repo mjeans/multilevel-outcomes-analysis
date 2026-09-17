@@ -1,0 +1,3 @@
+model,parameters,AIC,BIC,log_likelihood,chi_square,df,p_value
+conditional_model,9,76768.325,76834.836,-38375.162,NA,NA,NA
+growth_model,12,76510.221,76598.903,-38243.111,264.104,3,0

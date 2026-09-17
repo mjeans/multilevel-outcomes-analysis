@@ -6,3 +6,8 @@ outputs/*.csv
 outputs/*.png
 outputs/*.rds
 analysis/*.html
+.r-library/
+renv/library/
+renv/staging/
+renv/cache/
+!outputs/*.csv
